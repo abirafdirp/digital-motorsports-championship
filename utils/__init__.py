@@ -8,4 +8,7 @@ def is_user_in_group(user, group_name):
 
 
 def get_base_url(request: HttpRequest):
-    return f'{request.scheme}://{request.get_host()}'
+    return '{scheme}://{host}'.format(
+        scheme=request.scheme,
+        host=request.get_host()
+    )

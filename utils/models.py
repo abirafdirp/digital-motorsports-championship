@@ -13,7 +13,10 @@ class TimeStampedModel(models.Model):
         return self.time_created.strftime('%d-%m-%Y %H:%M:%S')
 
     def get_model_name(self):
-        return f'{self._meta.app_label}.{self._meta.model_name}'
+        return 'app_label}.{model_name}'.format(
+            app_label=self._meta.app_label,
+            model_name=self._meta.model_name
+        )
 
     def save(self, *args, **kwargs):
         now = timezone.now()

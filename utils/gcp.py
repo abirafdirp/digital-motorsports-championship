@@ -10,20 +10,24 @@ def get_base_url():
         version_service = settings.GAE_VERSION
     else:
         version_service = (
-            f'{settings.GAE_VERSION}-dot-'
-            f'{settings.GAE_SERVICE}'
+            '{gae_version}-dot-{gae_service}'.format(
+                gae_version=settings.GAE_VERSION,
+                gae_service=settings.GAE_SERVICE
+            )
         )
 
     url = (
-        f'https://{version_service}-dot-'
-        f'{settings.GOOGLE_CLOUD_PROJECT}.appspot.com/'
+        'https://{version_service}-dot-{google_cloud_project}.appspot.com/'.format(  # nopep8
+            version_service=version_service,
+            google_cloud_project=settings.GOOGLE_CLOUD_PROJECT
+        )
     )
     return url
 
 
 def get_base_gcs_url():
     bucket_name = getattr(settings, 'GS_BUCKET_NAME', 'LOCAL')
-    return f'gs://{bucket_name}/'
+    return 'gs://{bucket_name}/'.format(bucket_name=bucket_name)
 
 
 def slugify_for_gcs(decorated_function):
