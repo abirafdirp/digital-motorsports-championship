@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="google" content="notranslate" />
+
+  <meta name="description" content="Indonesia Digital Motorsports Championship" />
+  <meta name="keywords" content="simracing, sim racing, digital motorsports championship indonesia, digital motorsports championship, imi, ikatan motor indonesia, digital motorsports, indonesia" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Indonesia Digital Motorsports Championship" />
+  <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}" />
+  <meta property="og:image" content="{% static 'imi.png' %}" />
+  <meta property="og:image:secure_url" content="{% static 'imi.png' %}" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:description" content="Indonesia Digital Motorsports Championship" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Indonesia Digital Motorsports Championship" />
+  <meta name="twitter:description" content="Indonesia Digital Motorsports Championship" />
+  <meta name="twitter:creator" content="Indonesia Digital Motorsports Championship" />
+  <meta name="twitter:image" content="{% static 'imi.png' %}" />
+
+  <link rel="shortcut icon" href="{% static 'favicon.ico' %}" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" media="screen" />
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+  <title>Indonesia Digital Motorsports Championship</title>
+</head>
+<body>
+<section class="hero is-medium is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Thank you for registering
+      </h1>
+      <h2 class="subtitle">
+        Your data is saved
+      </h2>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

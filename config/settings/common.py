@@ -31,7 +31,8 @@ SECRET_KEY = env.str('DJANGO_SECRET_KEY', 'changethis')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'digitalmotorsports.id'
+    '127.0.0.1',
+    'www.digitalmotorsportschampionship.id'
 ]
 
 

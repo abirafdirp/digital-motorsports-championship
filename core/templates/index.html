@@ -1,10 +1,117 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ lang }}">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="google" content="notranslate" />
+
+  <meta name="description" content="Indonesia Digital Motorsports Championship" />
+  <meta name="keywords" content="simracing, sim racing, digital motorsports championship indonesia, digital motorsports championship, imi, ikatan motor indonesia, digital motorsports, indonesia" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Indonesia Digital Motorsports Championship" />
+  <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}" />
+  <meta property="og:image" content="{% static 'imi.png' %}" />
+  <meta property="og:image:secure_url" content="{% static 'imi.png' %}" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:description" content="Indonesia Digital Motorsports Championship" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Indonesia Digital Motorsports Championship" />
+  <meta name="twitter:description" content="Indonesia Digital Motorsports Championship" />
+  <meta name="twitter:creator" content="Indonesia Digital Motorsports Championship" />
+  <meta name="twitter:image" content="{% static 'imi.png' %}" />
+
+  <link rel="shortcut icon" href="{% static 'favicon.ico' %}" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" media="screen" />
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+  <title>Indonesia Digital Motorsports Championship</title>
 </head>
 <body>
+<section class="hero is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Indonesia Digital Motorsports Championship
+      </h1>
+      <h2 class="subtitle">
+        Registration
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+      <div class="field">
+        <label for="{{ form.email.id_for_label }}" class="label">Email address</label>
+        <div class="control has-icons-left">
+          <input id="{{ form.email.id_for_label }}" name="email" class="input{% if form.email.errors %} is-danger{% endif %}" type="email" required="required">
+          <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
+        </div>
+        {% if form.email.errors %}
+          {% for error in form.email.errors %}
+            <p class="help is-danger">{{ error|escape }}</p>
+          {% endfor %}
+        {% endif %}
+      </div>
+
+      <div class="field">
+        <label for="{{ form.name.id_for_label }}" class="label">Name</label>
+        <div class="control has-icons-left has-icons-right">
+          <input id="{{ form.name.id_for_label }}" name="name" class="input" type="text" placeholder="" required="required">
+          <span class="icon is-small is-left"><i class="fas fa-user"></i></span>
+        </div>
+        {% if form.name.errors %}
+          {% for error in form.name.errors %}
+            <p class="help is-danger">{{ error|escape }}</p>
+          {% endfor %}
+        {% endif %}
+      </div>
+
+      <div class="field">
+        <label for="{{ form.steam_nickname.id_for_label }}" class="label">Steam nickname</label>
+        <div class="control has-icons-left has-icons-right">
+          <input id="{{ form.steam_nickname.id_for_label }}" name="steam_nickname" class="input" type="text" placeholder="" required="required">
+          <span class="icon is-small is-left"><i class="fab fa-steam"></i></span>
+        </div>
+        {% if form.steam_nickname.errors %}
+          {% for error in form.steam_nickname.errors %}
+            <p class="help is-danger">{{ error|escape }}</p>
+          {% endfor %}
+        {% endif %}
+      </div>
+
+      <div class="field">
+        <label for="{{ form.discord_nickname.id_for_label }}" class="label">Discord nickname</label>
+        <div class="control has-icons-left has-icons-right">
+          <input id="{{ form.discord_nickname.id_for_label }}" name="discord_nickname" class="input" type="text" placeholder="" required="required">
+          <span class="icon is-small is-left"><i class="fab fa-discord"></i></span>
+        </div>
+        {% if form.discord_nickname.errors %}
+          {% for error in form.discord_nickname.errors %}
+            <p class="help is-danger">{{ error|escape }}</p>
+          {% endfor %}
+        {% endif %}
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <input class="button is-link" type="submit" value="Submit">
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
 
 </body>
 </html>
